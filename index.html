@@ -60,7 +60,7 @@
     letter-spacing: 0;
   }
 
-  h1{ font-size: clamp(44px, 5.2vw, 76px); }
+  h1{ font-size: 66px; }
   h2{ font-size: clamp(36px, 4vw, 56px); }
   h3{ font-size: 28px; line-height: 1.2; }
 
@@ -89,7 +89,7 @@
   }
 
   .section-head{ margin-bottom: 64px; }
-  .section-head .eyebrow{ margin-bottom: 20px; }
+  .section-head .eyebrow{ margin-bottom: 16px; }
   .section-head h2{ margin-bottom: 20px; }
   .section-head.center{ text-align: center; max-width: 640px; margin-left: auto; margin-right: auto; }
   .section-head.center p{ margin-left: auto; margin-right: auto; }
@@ -202,7 +202,7 @@
     background: var(--ink);
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
-  .hamburger.active span:nth-child(1){ transform: translateY(5px) rotate(45deg); }
+  .hamburger.active span:nth-child(1){ transform: translateY(4px) rotate(45deg); }
   .hamburger.active span:nth-child(2){ opacity: 0; }
   .hamburger.active span:nth-child(3){ transform: translateY(-4px) rotate(-45deg); }
 
@@ -239,11 +239,11 @@
   .hero{ padding-top: 56px; padding-bottom: 96px; }
   .hero-grid{
     display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 64px;
     align-items: center;
   }
-  .hero-text .eyebrow{ margin-bottom: 28px; }
+  .hero-text .eyebrow{ margin-bottom: 16px; }
   .hero h1{ margin-bottom: 28px; }
   .hero h1 em{
     display: block;
@@ -342,7 +342,7 @@
     align-items: start;
   }
   .services-head{ position: sticky; top: 128px; }
-  .services-head .eyebrow{ margin-bottom: 20px; }
+  .services-head .eyebrow{ margin-bottom: 16px; }
   .services-head h2{ margin-bottom: 20px; }
   .services-hint{ margin-top: 24px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
   .services-list{ border-top: 1px solid var(--accent-line); }
@@ -426,7 +426,7 @@
   .modal-close:hover{ background: var(--ink); color: var(--bg); }
   .modal-media{ margin-bottom: 28px; }
   .modal-media img{ width: 100%; height: 240px; object-fit: cover; }
-  .modal-eyebrow{ margin-bottom: 12px; }
+  .modal-eyebrow{ margin-bottom: 16px; }
   .modal-box h3{ font-size: 32px; margin-bottom: 16px; }
   .modal-box p + p{ margin-top: 12px; }
   .modal-actions{ margin-top: 32px; }
@@ -443,6 +443,113 @@
     text-transform: uppercase;
   }
   .modal-media .photo-placeholder{ height: 240px; }
+
+  /* ===== KATALOG ===== */
+  .services-more{ grid-column: 2 / 3; margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+  .services-more p{ font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
+
+  .catalog{
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: var(--bg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .catalog-head{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: hsla(38, 44%, 98%, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-line);
+  }
+  .catalog-head-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .catalog-title{ display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .catalog-title h2{ font-size: 32px; }
+  .catalog-count{ font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
+  .catalog-close{
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-line);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .catalog-close svg{ width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.2; }
+  .catalog-close:hover{ background: var(--ink); color: var(--bg); }
+
+  .catalog-body{ padding-top: 40px; padding-bottom: 80px; }
+  .catalog-filters{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+  .chip{
+    padding: 10px 20px;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    background: transparent;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .chip:hover{ border-color: var(--accent); color: var(--accent); }
+  .chip[aria-pressed="true"]{ background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .catalog-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .cat-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-ctrl);
+    background: var(--bg-soft);
+    padding: 12px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .cat-card:hover{ border-color: var(--accent); transform: translateY(-2px); }
+  .cat-media{ overflow: hidden; border-radius: 8px; margin-bottom: 16px; }
+  .cat-media img{ width: 100%; height: 160px; object-fit: cover; }
+  .cat-name{ font-size: 20px; margin-bottom: 12px; padding-left: 4px; }
+  .cat-meta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding: 12px 4px 4px;
+    border-top: 1px solid var(--accent-line);
+  }
+  .cat-tag{ font-size: 12px; color: var(--text-faint); }
+  .cat-price{ font-size: 12px; letter-spacing: 0.08em; color: var(--accent); }
+
+  .catalog-foot{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--accent-line);
+  }
+  .catalog-foot p{ font-size: 16px; max-width: 44ch; }
 
   /* ===== DOSTAVA ===== */
   .delivery{ background: var(--ink); color: var(--bg); }
@@ -477,7 +584,7 @@
     gap: 32px;
     margin-bottom: 64px;
   }
-  .gallery-head .eyebrow{ margin-bottom: 20px; }
+  .gallery-head .eyebrow{ margin-bottom: 16px; }
   .gallery-grid{ display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; }
   .gallery-item figure{ overflow: hidden; }
   .gallery-item img{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
@@ -517,7 +624,7 @@
     border-left: 1px solid var(--accent);
   }
   .about-photo{ position: relative; aspect-ratio: 4 / 5; }
-  .about-text .eyebrow{ margin-bottom: 20px; }
+  .about-text .eyebrow{ margin-bottom: 16px; }
   .about-text h2{ margin-bottom: 24px; }
   .about-text p + p{ margin-top: 16px; }
   .about-points{ margin-top: 48px; border-top: 1px solid var(--accent-line); }
@@ -564,7 +671,7 @@
     gap: 80px;
     align-items: start;
   }
-  .contact-info .eyebrow{ margin-bottom: 20px; }
+  .contact-info .eyebrow{ margin-bottom: 16px; }
   .contact-info h2{ margin-bottom: 20px; }
   .contact-list{ margin-top: 56px; border-top: 1px solid var(--accent-line); }
   .contact-item{
@@ -619,6 +726,56 @@
   .form-group input::placeholder,
   .form-group textarea::placeholder{ color: hsl(32, 8%, 68%); }
   .contact-form .btn{ width: 100%; }
+
+  /* ===== KATALOG ===== */
+  var catalog = document.getElementById('catalog');
+  var catalogOpen = document.getElementById('catalogOpen');
+  var catalogClose = document.getElementById('catalogClose');
+  var catalogCta = document.getElementById('catalogCta');
+  var catalogCount = document.getElementById('catalogCount');
+  var catalogCards = catalog.querySelectorAll('.cat-card');
+  var catalogFocus = null;
+
+  function openCatalog() {
+    catalogFocus = document.activeElement;
+    catalog.hidden = false;
+    document.body.style.overflow = 'hidden';
+    catalog.scrollTop = 0;
+    catalogClose.focus();
+  }
+
+  function closeCatalog() {
+    catalog.hidden = true;
+    document.body.style.overflow = '';
+    if (catalogFocus) catalogFocus.focus();
+  }
+
+  catalogOpen.addEventListener('click', openCatalog);
+  catalogClose.addEventListener('click', closeCatalog);
+  catalogCta.addEventListener('click', function () {
+    closeCatalog();
+    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var filter = chip.getAttribute('data-filter');
+      document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (c) {
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      var shown = 0;
+      catalogCards.forEach(function (card) {
+        var match = filter === 'sve' || card.getAttribute('data-kat') === filter;
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      catalogCount.textContent = shown + (shown === 1 ? ' proizvod' : shown < 5 ? ' proizvoda' : ' proizvoda');
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !catalog.hidden) closeCatalog();
+  });
 
   /* ===== KVIZ FORMA ===== */
   .quiz{
@@ -778,6 +935,56 @@
   .footer-col a:hover{ color: var(--accent); }
   .footer-bottom{ padding-top: 32px; font-size: 12px; letter-spacing: 0.08em; color: var(--text-faint); }
 
+  /* ===== KATALOG ===== */
+  var catalog = document.getElementById('catalog');
+  var catalogOpen = document.getElementById('catalogOpen');
+  var catalogClose = document.getElementById('catalogClose');
+  var catalogCta = document.getElementById('catalogCta');
+  var catalogCount = document.getElementById('catalogCount');
+  var catalogCards = catalog.querySelectorAll('.cat-card');
+  var catalogFocus = null;
+
+  function openCatalog() {
+    catalogFocus = document.activeElement;
+    catalog.hidden = false;
+    document.body.style.overflow = 'hidden';
+    catalog.scrollTop = 0;
+    catalogClose.focus();
+  }
+
+  function closeCatalog() {
+    catalog.hidden = true;
+    document.body.style.overflow = '';
+    if (catalogFocus) catalogFocus.focus();
+  }
+
+  catalogOpen.addEventListener('click', openCatalog);
+  catalogClose.addEventListener('click', closeCatalog);
+  catalogCta.addEventListener('click', function () {
+    closeCatalog();
+    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var filter = chip.getAttribute('data-filter');
+      document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (c) {
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      var shown = 0;
+      catalogCards.forEach(function (card) {
+        var match = filter === 'sve' || card.getAttribute('data-kat') === filter;
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      catalogCount.textContent = shown + (shown === 1 ? ' proizvod' : shown < 5 ? ' proizvoda' : ' proizvoda');
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !catalog.hidden) closeCatalog();
+  });
+
   /* ===== KVIZ FORMA ===== */
   var quiz = document.getElementById('quiz');
   var panes = quiz.querySelectorAll('.quiz-pane');
@@ -885,12 +1092,18 @@
   .reveal.in{ transform: translateY(0); }
 
   /* ===== RESPONSIVE ===== */
+  @media (max-width: 1320px){
+    .hero h1{ font-size: 56px; }
+  }
+
   @media (max-width: 1100px){
     .services-layout{ grid-template-columns: 1fr; gap: 48px; }
     .services-head{ position: static; }
+    .services-more{ grid-column: auto; }
     .service-row{ grid-template-columns: 40px minmax(0, 200px) minmax(0, 1fr) 40px; }
     .about-layout, .contact-layout{ gap: 56px; }
     .hero-grid{ gap: 40px; }
+    .hero h1{ font-size: 48px; }
     .hero-media{ min-height: 480px; }
   }
 
@@ -901,6 +1114,7 @@
 
     .hero{ padding-top: 40px; padding-bottom: 72px; }
     .hero-grid{ grid-template-columns: 1fr; gap: 48px; }
+    .hero h1{ font-size: 60px; }
     .hero-media{ min-height: 0; height: 360px; }
 
     .paths-grid{ grid-template-columns: 1fr; }
@@ -915,6 +1129,7 @@
     :root{ --section-y: 80px; --gutter: 20px; }
 
     h3{ font-size: 24px; }
+    .hero h1{ font-size: 38px; }
     .hero-lead{ font-size: 16px; }
     .section-head{ margin-bottom: 40px; }
 
@@ -936,7 +1151,13 @@
     .service-row p{ grid-column: 2 / 4; }
     .service-open{ grid-row: 1 / 2; grid-column: 3 / 4; }
 
-    .g-a, .g-b, .g-c, .g-d, .g-e, .g-f{ grid-column: span 12; }
+    .gallery-grid{ grid-template-columns: 1fr; }
+    .catalog-grid{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+    .cat-media img{ height: 120px; }
+    .cat-name{ font-size: 16px; }
+    .cat-meta{ flex-direction: column; align-items: flex-start; gap: 4px; }
+    .catalog-title h2{ font-size: 24px; }
+    .g-a, .g-b, .g-c, .g-d, .g-e, .g-f{ grid-column: auto; }
     .g-a figure, .g-b figure, .g-c figure, .g-d figure, .g-e figure, .g-f figure{ height: 240px; }
 
     .delivery-inner{ padding-top: 56px; padding-bottom: 56px; }
@@ -949,6 +1170,11 @@
     .btn-primary, .btn-secondary{ padding: 16px 28px; }
     .modal{ padding: 16px; }
     .modal-box{ padding: 32px 24px; }
+  }
+
+  @media (max-width: 480px){
+    .hero h1{ font-size: 34px; }
+    .stats-items{ grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -1192,6 +1418,11 @@
           <p>Postavljamo ih tako da ne smetaju gostima ni prolazu. Rashlada radi i kad proslava počne u podne.</p>
         </div>
       </div>
+    </div>
+
+    <div class="services-more">
+      <button type="button" class="btn btn-secondary" id="catalogOpen" aria-haspopup="dialog">Pogledaj sve proizvode</button>
+      <p>31 stavka u ponudi</p>
     </div>
   </div>
 </section>
@@ -1516,6 +1747,287 @@
   </div>
 </footer>
 
+<div class="catalog" id="catalog" role="dialog" aria-modal="true" aria-labelledby="catalogTitle" hidden>
+  <div class="catalog-head">
+    <div class="wrap catalog-head-inner">
+      <div class="catalog-title">
+        <h2 id="catalogTitle">Ceo katalog</h2>
+        <span class="catalog-count" id="catalogCount">31 proizvod</span>
+      </div>
+      <button type="button" class="catalog-close" id="catalogClose" aria-label="Zatvori katalog">
+        <svg viewBox="0 0 24 24" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="wrap catalog-body">
+    <div class="catalog-filters" id="catalogFilters">
+      <button type="button" class="chip" data-filter="sve" aria-pressed="true">Sve</button>
+      <button type="button" class="chip" data-filter="sto" aria-pressed="false">Stolovi i stolice</button>
+      <button type="button" class="chip" data-filter="posudje" aria-pressed="false">Sto i posuđe</button>
+      <button type="button" class="chip" data-filter="klima" aria-pressed="false">Rashlada i grejanje</button>
+      <button type="button" class="chip" data-filter="napolju" aria-pressed="false">Napolju</button>
+      <button type="button" class="chip" data-filter="dekor" aria-pressed="false">Dekor i program</button>
+    </div>
+
+    <div class="catalog-grid" id="catalogGrid">
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/barski-stolovi.webp" alt="Barski stolovi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Barski stolovi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/barske-stolice.webp" alt="Barske stolice iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Barske stolice</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/tiffany-stolice.webp" alt="Tiffany stolice iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Tiffany stolice</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/sklopive-stolice.webp" alt="Sklopive stolice iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Sklopive stolice</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/banket-stolovi.webp" alt="Banket stolovi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Banket stolovi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/svetleci-stolovi.webp" alt="Svetleći stolovi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Svetleći stolovi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/community-stolovi.webp" alt="Community stolovi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Community stolovi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="posudje">
+        <div class="cat-media"><img src="assets/katalog/tanjiri.webp" alt="Tanjiri iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Tanjiri</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Sto i posuđe</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="posudje">
+        <div class="cat-media"><img src="assets/katalog/stolnjaci.webp" alt="Stolnjaci iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Stolnjaci</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Sto i posuđe</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="posudje">
+        <div class="cat-media"><img src="assets/katalog/escajg.webp" alt="Escajg iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Escajg</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Sto i posuđe</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="posudje">
+        <div class="cat-media"><img src="assets/katalog/case.webp" alt="Čaše iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Čaše</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Sto i posuđe</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="klima">
+        <div class="cat-media"><img src="assets/katalog/frizideri.webp" alt="Frižideri iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Frižideri</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Rashlada i grejanje</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="klima">
+        <div class="cat-media"><img src="assets/katalog/hladnjace.webp" alt="Hladnjače iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Hladnjače</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Rashlada i grejanje</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/pivski-setovi.webp" alt="Pivski setovi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Pivski setovi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="napolju">
+        <div class="cat-media"><img src="assets/katalog/paviljoni.webp" alt="Paviljoni iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Paviljoni</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Napolju</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="napolju">
+        <div class="cat-media"><img src="assets/katalog/pagode.webp" alt="Pagode iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Pagode</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Napolju</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="dekor">
+        <div class="cat-media"><img src="assets/katalog/crveni-tepih.webp" alt="Crveni tepih iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Crveni tepih</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Dekor i program</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="dekor">
+        <div class="cat-media"><img src="assets/katalog/govornice.webp" alt="Govornice iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Govornice</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Dekor i program</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="napolju">
+        <div class="cat-media"><img src="assets/katalog/lazy-bag.webp" alt="Lazy bag iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Lazy bag</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Napolju</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="dekor">
+        <div class="cat-media"><img src="assets/katalog/svetleci-tunel.webp" alt="Svetleći tunel iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Svetleći tunel</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Dekor i program</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="dekor">
+        <div class="cat-media"><img src="assets/katalog/sijalice-na-kablu.webp" alt="Sijalice na kablu iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Sijalice na kablu</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Dekor i program</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="klima">
+        <div class="cat-media"><img src="assets/katalog/grejalice.webp" alt="Grejalice iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Grejalice</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Rashlada i grejanje</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="klima">
+        <div class="cat-media"><img src="assets/katalog/kaloriferi.webp" alt="Kaloriferi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Kaloriferi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Rashlada i grejanje</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="klima">
+        <div class="cat-media"><img src="assets/katalog/ventilatori-na-vodu.webp" alt="Ventilatori na vodu iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Ventilatori na vodu</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Rashlada i grejanje</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="klima">
+        <div class="cat-media"><img src="assets/katalog/pokretne-klime.webp" alt="Pokretne klime iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Pokretne klime</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Rashlada i grejanje</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="klima">
+        <div class="cat-media"><img src="assets/katalog/plinske-pecurke.webp" alt="Plinske pečurke iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Plinske pečurke</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Rashlada i grejanje</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="dekor">
+        <div class="cat-media"><img src="assets/katalog/stenderi.webp" alt="Stenderi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Stenderi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Dekor i program</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="dekor">
+        <div class="cat-media"><img src="assets/katalog/stafelaji.webp" alt="Štafelaji iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Štafelaji</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Dekor i program</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="sto">
+        <div class="cat-media"><img src="assets/katalog/stolovi.webp" alt="Stolovi iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Stolovi</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Stolovi i stolice</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="napolju">
+        <div class="cat-media"><img src="assets/katalog/drvene-lezaljke.webp" alt="Drvene ležaljke iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Drvene ležaljke</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Napolju</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+      <article class="cat-card" data-kat="napolju">
+        <div class="cat-media"><img src="assets/katalog/suncobrani.webp" alt="Suncobrani iz ponude za iznajmljivanje" loading="lazy"></div>
+        <h3 class="cat-name">Suncobrani</h3>
+        <div class="cat-meta">
+          <span class="cat-tag">Napolju</span>
+          <span class="cat-price">Cena na upit</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="catalog-foot">
+      <p>Cene zavise od broja komada, datuma i lokacije. Javi šta ti treba i vraćamo se sa ponudom isti dan.</p>
+      <button type="button" class="btn btn-primary" id="catalogCta">Zatraži ponudu</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal" id="serviceModal" hidden>
   <div class="modal-backdrop" data-close></div>
   <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -1610,6 +2122,56 @@
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+
+  /* ===== KATALOG ===== */
+  var catalog = document.getElementById('catalog');
+  var catalogOpen = document.getElementById('catalogOpen');
+  var catalogClose = document.getElementById('catalogClose');
+  var catalogCta = document.getElementById('catalogCta');
+  var catalogCount = document.getElementById('catalogCount');
+  var catalogCards = catalog.querySelectorAll('.cat-card');
+  var catalogFocus = null;
+
+  function openCatalog() {
+    catalogFocus = document.activeElement;
+    catalog.hidden = false;
+    document.body.style.overflow = 'hidden';
+    catalog.scrollTop = 0;
+    catalogClose.focus();
+  }
+
+  function closeCatalog() {
+    catalog.hidden = true;
+    document.body.style.overflow = '';
+    if (catalogFocus) catalogFocus.focus();
+  }
+
+  catalogOpen.addEventListener('click', openCatalog);
+  catalogClose.addEventListener('click', closeCatalog);
+  catalogCta.addEventListener('click', function () {
+    closeCatalog();
+    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var filter = chip.getAttribute('data-filter');
+      document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (c) {
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      var shown = 0;
+      catalogCards.forEach(function (card) {
+        var match = filter === 'sve' || card.getAttribute('data-kat') === filter;
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      catalogCount.textContent = shown + (shown === 1 ? ' proizvod' : shown < 5 ? ' proizvoda' : ' proizvoda');
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !catalog.hidden) closeCatalog();
   });
 
   /* ===== KVIZ FORMA ===== */
