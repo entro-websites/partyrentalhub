@@ -368,19 +368,6 @@
   .services-more{ grid-column: 2 / 3; width: fit-content; margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
   .services-more p{ text-align: center; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
 
-  /* fotografija koja prati kursor preko liste */
-  .svc-peek{
-    position: fixed; top: 0; left: 0; z-index: 90;
-    width: 280px; aspect-ratio: 4 / 3; overflow: hidden;
-    pointer-events: none; opacity: 0;
-    transform: translate3d(-9999px, 0, 0);
-    box-shadow: 0 24px 56px hsla(30, 30%, 10%, 0.24);
-    transition: opacity 0.3s ease;
-  }
-  .svc-peek.on{ opacity: 1; }
-  .svc-peek img{ width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transition: transform 0.6s var(--ease); }
-  .svc-peek.on img{ transform: scale(1); }
-
   /* ===== MODAL ===== */
   .modal{ position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; }
   .modal-backdrop{ position: absolute; inset: 0; background: hsla(32, 12%, 10%, 0.56); animation: fade 0.3s ease both; }
@@ -423,43 +410,6 @@
   .cat-price{ font-size: 12px; letter-spacing: 0.08em; color: var(--accent); }
   .catalog-foot{ display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--accent-line); }
   .catalog-foot p{ font-size: 16px; max-width: 44ch; }
-
-  /* ===== PLANER ===== */
-  .planner-card{ display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 64px; align-items: center; }
-  .planner-controls .eyebrow{ margin-bottom: 16px; }
-  .planner-controls h2{ margin-bottom: 20px; }
-  .guests{ margin-top: 40px; }
-  .guests-top{ display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-  .guests-top label{ font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
-  .guests-val{ font-family: 'Instrument Serif', serif; font-size: 56px; line-height: 1; color: var(--ink); }
-  .range{ -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: linear-gradient(90deg, var(--accent) var(--p, 20%), var(--accent-line) var(--p, 20%)); outline: none; cursor: pointer; }
-  .range::-webkit-slider-thumb{ -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 4px 12px hsla(32, 38%, 20%, 0.2); transition: transform 0.2s ease; }
-  .range::-moz-range-thumb{ width: 28px; height: 28px; border-radius: 50%; background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 4px 12px hsla(32, 38%, 20%, 0.2); }
-  .range:active::-webkit-slider-thumb{ transform: scale(1.12); }
-  .range:focus-visible::-webkit-slider-thumb{ outline: 2px solid var(--accent); outline-offset: 4px; }
-  .range-scale{ display: flex; justify-content: space-between; margin-top: 12px; font-size: 12px; color: var(--text-faint); }
-  .seg{ display: inline-flex; margin-top: 32px; padding: 4px; border: 1px solid var(--accent-line); border-radius: 999px; }
-  .seg button{ padding: 12px 20px; border: 0; border-radius: 999px; background: transparent; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; transition: background 0.25s ease, color 0.25s ease; }
-  .seg button[aria-pressed="true"]{ background: var(--accent); color: #fff; }
-  .tally{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--accent-line); }
-  .tally div{ padding: 16px 0; border-bottom: 1px solid var(--accent-line); }
-  .tally div:nth-child(odd){ padding-right: 16px; border-right: 1px solid var(--accent-line); }
-  .tally div:nth-child(even){ padding-left: 20px; }
-  .tally strong{ display: block; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; line-height: 1.2; color: var(--accent); }
-  .tally span{ font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
-  .planner-note{ margin-top: 24px; font-size: 16px; }
-  .planner-cta{ margin-top: 32px; }
-
-  .plan{ position: relative; background: var(--bg-soft); border-radius: var(--radius-card); padding: 32px; }
-  .plan-head{ display: flex; justify-content: space-between; gap: 16px; margin-bottom: 20px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
-  .plan svg{ display: block; width: 100%; height: auto; }
-  .plan .tbl{ transform-box: fill-box; transform-origin: center; }
-  .plan .tbl.new{ animation: pop 0.6s var(--ease) both; animation-delay: calc(var(--k) * 24ms); }
-  @keyframes pop{ from{ opacity: 0; transform: scale(0.4); } to{ opacity: 1; transform: scale(1); } }
-  .plan .top{ fill: var(--bg); stroke: var(--accent-light); stroke-width: 1; }
-  .plan .chair{ fill: hsl(32, 30%, 72%); }
-  .plan .stage{ fill: none; stroke: var(--accent-line); stroke-dasharray: 4 4; }
-  .plan .stage-t{ font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.16em; fill: var(--text-faint); text-transform: uppercase; }
 
   /* ===== KAKO IDE (tamna) ===== */
   .process{ background: var(--ink); color: var(--bg); }
@@ -622,7 +572,6 @@
     .occasions-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .occ{ aspect-ratio: 4 / 3; }
     .occ-go{ max-height: 24px; opacity: 1; }
-    .planner-card{ grid-template-columns: 1fr; gap: 48px; }
     .topbar-hide-md{ display: none; }
   }
 
@@ -665,8 +614,6 @@
     .service-row h3{ grid-column: 2 / 3; }
     .service-row p{ grid-column: 2 / 4; }
     .service-open{ grid-row: 1 / 2; grid-column: 3 / 4; }
-    .plan{ padding: 20px; }
-    .guests-val{ font-size: 48px; }
     .steps{ grid-template-columns: 1fr; gap: 40px; }
     .gallery-grid{ grid-template-columns: 1fr; }
     .g-a, .g-b, .g-c, .g-d, .g-e, .g-f{ grid-column: auto; }
@@ -692,7 +639,6 @@
 
   @media (max-width: 480px){
     .stats-items{ grid-template-columns: 1fr; }
-    .tally strong{ font-size: 28px; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -745,7 +691,6 @@
     </a>
     <nav class="desktop-nav">
       <a href="#usluge">Ponuda</a>
-      <a href="#planer">Planer</a>
       <a href="#galerija">Sa terena</a>
       <a href="#o-nama">O nama</a>
       <a href="#kontakt">Kontakt</a>
@@ -760,7 +705,6 @@
   <div class="mobile-nav" id="mobileNav">
     <div class="wrap mobile-nav-inner">
       <a href="#usluge">Ponuda</a>
-      <a href="#planer">Planer</a>
       <a href="#galerija">Sa terena</a>
       <a href="#o-nama">O nama</a>
       <a href="#kontakt">Kontakt</a>
@@ -1044,45 +988,6 @@
     <div class="services-more">
       <button type="button" class="btn btn-secondary" id="catalogOpen" aria-haspopup="dialog">Pogledaj sve proizvode</button>
       <p>31 stavka u ponudi</p>
-    </div>
-  </div>
-</section>
-
-<div class="svc-peek" id="svcPeek" aria-hidden="true"><img alt=""></div>
-
-<section id="planer" class="section">
-  <div class="wrap planner-card">
-    <div class="planner-controls">
-      <span class="eyebrow rv">Planer stolova</span>
-      <h2 class="rv">Koliko ti <em>treba?</em></h2>
-      <p class="rv">Pomeri broj gostiju i vidi okvirnu postavku. Tačne količine predlažemo po tvom prostoru.</p>
-
-      <div class="guests rv">
-        <div class="guests-top">
-          <label for="guestRange">Broj gostiju</label>
-          <output class="guests-val" id="guestVal" for="guestRange">100</output>
-        </div>
-        <input class="range" type="range" id="guestRange" min="20" max="500" step="10" value="100">
-        <div class="range-scale"><span>20</span><span>500</span></div>
-      </div>
-
-      <div class="seg rv" id="tableType" role="group" aria-label="Oblik stola">
-        <button type="button" data-seats="10" data-shape="round" aria-pressed="true">Okrugli stolovi</button>
-        <button type="button" data-seats="8" data-shape="long" aria-pressed="false">Banket stolovi</button>
-      </div>
-
-      <div class="tally rv" aria-live="polite">
-        <div><strong id="tTables">10</strong><span>stolova</span></div>
-        <div><strong id="tChairs">100</strong><span>stolica</span></div>
-        <div><strong id="tCloths">10</strong><span>stolnjaka</span></div>
-        <div><strong id="tSets">100</strong><span>setova posuđa</span></div>
-      </div>
-      <a href="#kontakt" class="btn btn-primary planner-cta rv" id="planSend">Pošalji ovu računicu</a>
-    </div>
-
-    <div class="plan rv">
-      <div class="plan-head"><span>Pogled odozgo</span><span id="planSeats">10 mesta po stolu</span></div>
-      <svg id="planSvg" viewBox="0 0 640 440" role="img" aria-label="Okvirni raspored stolova za izabrani broj gostiju"></svg>
     </div>
   </div>
 </section>
@@ -1482,7 +1387,6 @@
         <h4>Stranica</h4>
         <ul>
           <li><a href="#usluge">Ponuda</a></li>
-          <li><a href="#planer">Planer stolova</a></li>
           <li><a href="#galerija">Sa terena</a></li>
           <li><a href="#o-nama">O nama</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
@@ -2077,34 +1981,6 @@
   var heroCount = document.querySelector('.hero-card [data-count]');
   if (heroCount) setTimeout(function () { countUp(heroCount); }, reduceMotion ? 0 : 1900);
 
-  /* ===== FOTOGRAFIJA KOJA PRATI KURSOR ===== */
-  var peek = document.getElementById('svcPeek');
-  var peekImg = peek.querySelector('img');
-  var canPeek = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion;
-  if (canPeek) {
-    var px = 0, py = 0, tx = 0, ty = 0, peeking = false, raf = null;
-    function follow() {
-      px += (tx - px) * 0.16;
-      py += (ty - py) * 0.16;
-      peek.style.transform = 'translate3d(' + (px + 32) + 'px,' + (py - 104) + 'px,0) rotate(' + ((tx - px) * 0.04).toFixed(2) + 'deg)';
-      if (peeking || Math.abs(tx - px) > 0.5) raf = requestAnimationFrame(follow); else raf = null;
-    }
-    document.querySelectorAll('.service-row').forEach(function (row) {
-      var img = row.querySelector('.service-detail img');
-      if (!img) return;
-      row.addEventListener('mouseenter', function (e) {
-        if (window.innerWidth < 1100) return;
-        peekImg.src = img.getAttribute('src');
-        if (!peeking) { px = tx = e.clientX; py = ty = e.clientY; }
-        peeking = true;
-        peek.classList.add('on');
-        if (!raf) raf = requestAnimationFrame(follow);
-      });
-      row.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; });
-      row.addEventListener('mouseleave', function () { peeking = false; peek.classList.remove('on'); });
-    });
-  }
-
   /* ===== PRILIKE -> KVIZ ===== */
   function goToQuiz() {
     document.getElementById('kontakt').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -2119,123 +1995,6 @@
       if (opt && step === 0) opt.click();
       goToQuiz();
     });
-  });
-
-  /* ===== PLANER STOLOVA ===== */
-  var guestRange = document.getElementById('guestRange');
-  var guestVal = document.getElementById('guestVal');
-  var planSvg = document.getElementById('planSvg');
-  var planSeats = document.getElementById('planSeats');
-  var tableType = document.getElementById('tableType');
-  var seats = 10, shape = 'round', drawn = 0, lastShape = shape;
-  var NS = 'http://www.w3.org/2000/svg';
-
-  function el(name, attrs) {
-    var n = document.createElementNS(NS, name);
-    for (var k in attrs) n.setAttribute(k, attrs[k]);
-    return n;
-  }
-
-  function drawPlan(guests) {
-    var n = Math.ceil(guests / seats);
-    var narrow = planSvg.getBoundingClientRect().width < 480;
-    var W = narrow ? 360 : 640, H = narrow ? 400 : 440, top = 56, pad = 16;
-    planSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-    var aspect = shape === 'round' ? 1 : 1.6;
-    // najveća ćelija koja staje: probaj broj kolona, uzmi onaj sa najvećom ćelijom
-    var best = { size: 0, cols: 1 };
-    for (var c = 1; c <= n; c++) {
-      var r = Math.ceil(n / c);
-      var cw = (W - pad * 2) / c;
-      var ch = (H - top - pad) / r;
-      var size = Math.min(cw / aspect, ch);
-      if (size > best.size) best = { size: size, cols: c };
-    }
-    var cols = best.cols, rows = Math.ceil(n / cols);
-    var cellW = (W - pad * 2) / cols, cellH = (H - top - pad) / rows;
-    planSvg.innerHTML = '';
-    var sw = narrow ? 200 : 280;
-    planSvg.appendChild(el('rect', { class: 'stage', x: (W - sw) / 2, y: 8, width: sw, height: 32, rx: 4 }));
-    var st = el('text', { class: 'stage-t', x: W / 2, y: 28, 'text-anchor': 'middle' });
-    st.textContent = 'Podijum';
-    planSvg.appendChild(st);
-
-    var left = guests;
-    for (var i = 0; i < n; i++) {
-      var cx = pad + cellW * (i % cols) + cellW / 2;
-      var cy = top + cellH * Math.floor(i / cols) + cellH / 2;
-      var here = Math.min(seats, left); left -= here;
-      var g = el('g', { class: 'tbl' + ((i >= drawn || lastShape !== shape) ? ' new' : '') });
-      g.style.setProperty('--k', Math.max(0, i - (lastShape !== shape ? 0 : drawn)));
-      if (shape === 'round') {
-        var s = Math.min(cellW, cellH);
-        var tr = s * 0.26, cr = Math.max(s * 0.06, 1.5), ring = tr + cr * 1.8;
-        g.appendChild(el('circle', { class: 'top', cx: cx, cy: cy, r: tr }));
-        for (var k = 0; k < here; k++) {
-          var a = -Math.PI / 2 + k * 2 * Math.PI / seats;
-          g.appendChild(el('circle', { class: 'chair', cx: cx + Math.cos(a) * ring, cy: cy + Math.sin(a) * ring, r: cr }));
-        }
-      } else {
-        var tw = Math.min(cellW * 0.72, cellH * 1.2), th = tw * 0.3;
-        var cs = Math.max(th * 0.26, 1.5);
-        g.appendChild(el('rect', { class: 'top', x: cx - tw / 2, y: cy - th / 2, width: tw, height: th, rx: 2 }));
-        var perSide = seats / 2;
-        for (var k2 = 0; k2 < here; k2++) {
-          var side = k2 < perSide ? -1 : 1;
-          var idx = k2 % perSide;
-          var x = cx - tw / 2 + tw * (idx + 0.5) / perSide;
-          g.appendChild(el('rect', { class: 'chair', x: x - cs, y: cy + side * (th / 2 + cs * 1.6) - cs, width: cs * 2, height: cs * 2, rx: cs * 0.5 }));
-        }
-      }
-      planSvg.appendChild(g);
-    }
-    drawn = n; lastShape = shape;
-    return n;
-  }
-
-  function updatePlanner() {
-    var g = parseInt(guestRange.value, 10);
-    var n = drawPlan(g);
-    guestVal.textContent = g;
-    guestRange.style.setProperty('--p', ((g - 20) / 480 * 100) + '%');
-    document.getElementById('tTables').textContent = n;
-    document.getElementById('tChairs').textContent = g;
-    document.getElementById('tCloths').textContent = n;
-    document.getElementById('tSets').textContent = g;
-    planSeats.textContent = seats + ' mesta po stolu';
-  }
-
-  guestRange.addEventListener('input', updatePlanner);
-  tableType.querySelectorAll('button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      tableType.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      seats = parseInt(b.getAttribute('data-seats'), 10);
-      shape = b.getAttribute('data-shape');
-      updatePlanner();
-    });
-  });
-  updatePlanner();
-  var planNarrow = planSvg.getBoundingClientRect().width < 480;
-  window.addEventListener('resize', function () {
-    var n = planSvg.getBoundingClientRect().width < 480;
-    if (n !== planNarrow) { planNarrow = n; drawn = 0; updatePlanner(); }
-  });
-
-  document.getElementById('planSend').addEventListener('click', function (e) {
-    e.preventDefault();
-    var g = guestRange.value;
-    var gosti = document.getElementById('qGosti');
-    gosti.value = g;
-    gosti.dispatchEvent(new Event('input'));
-    var tip = shape === 'round' ? 'okrugli stolovi' : 'banket stolovi';
-    var napomena = document.getElementById('qNapomena');
-    if (!napomena.value) {
-      napomena.value = 'Planer: ' + g + ' gostiju, ' + document.getElementById('tTables').textContent + ' stolova (' + tip + ').';
-      napomena.dispatchEvent(new Event('input'));
-    }
-    var opt = quiz.querySelector('.opt-grid[data-key="Oprema"] .opt[data-value="Stolovi i stolice"]');
-    if (opt && opt.getAttribute('aria-pressed') !== 'true') opt.click();
-    goToQuiz();
   });
 
   /* ===== RUTA: linija i kombi prate skrol ===== */
